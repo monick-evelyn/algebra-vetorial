@@ -8,7 +8,7 @@ public class ControladorSistema {
 
     SistemaCalculadora sistema;
 
-    private ControladorSistema() {
+    public ControladorSistema() {
         sistema = new SistemaCalculadora();
     }
 
