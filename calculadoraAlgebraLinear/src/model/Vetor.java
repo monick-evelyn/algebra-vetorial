@@ -1,0 +1,26 @@
+package model;
+
+public abstract class Vetor {
+		private double x;
+		private double y;
+		
+		public Vetor(double x, double y) {
+			this.x = x;
+			this.y = y;
+		}
+
+		public double getX() {
+			return x;
+		}
+
+		public double getY() {
+			return y;
+		}
+		
+		// Fórmula: raiz_quadrada(x² + y² + z²)
+		public abstract double modulo();
+
+		@Override
+		public abstract String toString();
+	
+}
