@@ -15,7 +15,7 @@ public class Vetor3D extends Vetor{
 	
 	// Fórmula: raiz_quadrada(x² + y² + z²)
 	public double modulo() {
-		 double modulo = Math.sqrt(getX()*getX() + getY()*getY() + z*z);
+		 double modulo = Math.sqrt(getX() * getX() + getY() * getY() + z*z);
 		 return modulo;
 	}
 

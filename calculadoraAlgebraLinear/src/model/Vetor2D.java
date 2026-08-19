@@ -6,9 +6,9 @@ public class Vetor2D extends Vetor {
 		super(x,y);
 	}
 	
-	// Fórmula: raiz_quadrada(x² + y² + z²)
+	// Fórmula: raiz_quadrada(x² + y²)
 	public double modulo() {
-		 double modulo = Math.sqrt(getX()*getX() + getY()*getY());
+		 double modulo = Math.sqrt(getX() * getX() + getY() * getY());
 		 return modulo;
 	}
 

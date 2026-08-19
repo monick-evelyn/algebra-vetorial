@@ -17,7 +17,6 @@ public abstract class Vetor {
 			return y;
 		}
 		
-		// Fórmula: raiz_quadrada(x² + y² + z²)
 		public abstract double modulo();
 
 		@Override
