@@ -5,8 +5,16 @@ public abstract class Vetor {
 		private double y;
 		
 		public Vetor(double x, double y) {
+			validaCoordenada(x);
+			validaCoordenada(y);
 			this.x = x;
 			this.y = y;
+		}
+		
+		protected void validaCoordenada(double coord) {
+			if (Double.isNaN(coord)) {
+				throw new IllegalArgumentException("As coordenadas do vetor não podem ser NaN.");
+			}
 		}
 
 		public double getX() {

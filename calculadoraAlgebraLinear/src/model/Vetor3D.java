@@ -6,6 +6,7 @@ public class Vetor3D extends Vetor{
 	
 	public Vetor3D(double x, double y, double z) {
 		super(x,y);
+		validaCoordenada(z);
 		this.z = z;
 	}
 
@@ -23,6 +24,5 @@ public class Vetor3D extends Vetor{
 	public String toString() {
 		return "Vetor3D [" + getX() + ", " + getY() + ", " + z + "]";
 	}
-	
 	
 }
