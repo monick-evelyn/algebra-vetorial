@@ -1,8 +1,7 @@
 package controller;
 
 import sistema.SistemaCalculadora;
-import model.Vetor2D;
-import model.Vetor3D;
+import model.*;
 
 public class ControladorSistema {
 
@@ -10,6 +9,18 @@ public class ControladorSistema {
 
     public ControladorSistema() {
         sistema = new SistemaCalculadora();
+    }
+
+    public Vetor3D calcularProdutoVetorial(Vetor3D vetorA, Vetor3D vetorB) {
+    	return sistema.calcularProdutoVetorial(vetorA, vetorB);
+    }
+    
+    public  double calcularAreaParalelograma(Vetor3D vetorA, Vetor3D vetorB) {
+    	return sistema.calcularAreaParalelograma(vetorA, vetorB);
+    }
+    
+    public double  calcularAreaTriangulo(Vetor3D vetorA, Vetor3D vetorB) {
+    	return sistema.calcularAreaTriangulo(vetorA, vetorB);
     }
 
     public double produtoEscalar(Vetor2D vetorA, Vetor2D vetorB) {
