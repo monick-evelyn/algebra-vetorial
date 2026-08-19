@@ -1,5 +1,8 @@
 package sistema;
 
+import model.Vetor2D;
+import model.Vetor3D;
+
 public class SistemaCalculadora {
 
 	
