@@ -1,8 +1,9 @@
 package controller;
 
-import sistema.SistemaCalculadora;
+import model.Vetor;
 import model.Vetor2D;
 import model.Vetor3D;
+import sistema.SistemaCalculadora;
 
 public class ControladorSistema {
 
@@ -11,6 +12,8 @@ public class ControladorSistema {
     public ControladorSistema() {
         sistema = new SistemaCalculadora();
     }
+    
+// 2D
 
     public double produtoEscalar(Vetor2D vetorA, Vetor2D vetorB) {
         return sistema.produtoEscalar(vetorA, vetorB);
@@ -23,6 +26,16 @@ public class ControladorSistema {
     public boolean saoPerpendiculares(Vetor2D vetorA, Vetor2D vetorB) {
         return sistema.saoPerpendiculares(vetorA, vetorB);
     }
+    
+    public double moduloDoVetor(Vetor2D vetor) {
+    	return sistema.moduloDoVetor(vetor);
+    }
+    
+    public Vetor projetarVetores(Vetor2D vetorA, Vetor2D vetorB) {
+    	return sistema.projetarVetores(vetorA, vetorB);
+    }
+    
+ // 3D
 
     public double produtoEscalar(Vetor3D vetorA, Vetor3D vetorB) {
         return sistema.produtoEscalar(vetorA, vetorB);
@@ -34,5 +47,13 @@ public class ControladorSistema {
 
     public boolean saoPerpendiculares(Vetor3D vetorA, Vetor3D vetorB) {
         return sistema.saoPerpendiculares(vetorA, vetorB);
+    }
+    
+    public double moduloDoVetor(Vetor3D vetor) {
+    	return sistema.moduloDoVetor(vetor);
+    }
+    
+    public Vetor projetarVetores(Vetor3D vetorA, Vetor3D vetorB) {
+    	return sistema.projetarVetores(vetorA, vetorB);
     }
 }

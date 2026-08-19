@@ -13,11 +13,14 @@ import model.Vetor3D;
 public class ControladorSistemaTest {
 
     private ControladorSistema controlador;
+    private double DELTA = 0.000001;
 	
 	@Before
 	public void inicializarControlador() {
 		controlador = new ControladorSistema();
 	}
+	
+	
 
     @Test
     public void testProdutoEscalar2D() {
@@ -25,7 +28,7 @@ public class ControladorSistemaTest {
         Vetor2D vetorB = new Vetor2D(4, 5);
         double resultadoEsperado = 23.0;
         double resultadoObtido = controlador.produtoEscalar(vetorA, vetorB);
-        assertEquals(resultadoEsperado, resultadoObtido);
+        assertEquals(resultadoEsperado, resultadoObtido, DELTA);
     }
 
     @Test
@@ -34,7 +37,7 @@ public class ControladorSistemaTest {
         Vetor3D vetorB = new Vetor3D(4, 5, 6);
         double resultadoEsperado = 32.0;
         double resultadoObtido = controlador.produtoEscalar(vetorA, vetorB);
-        assertEquals(resultadoEsperado, resultadoObtido);
+        assertEquals(resultadoEsperado, resultadoObtido, DELTA);
     }
 
     @Test
@@ -43,7 +46,7 @@ public class ControladorSistemaTest {
         Vetor2D vetorB = new Vetor2D(0, 1);
         double resultadoEsperado = Math.PI / 2; 
         double resultadoObtido = controlador.anguloEntreVetores(vetorA, vetorB);
-        assertEquals(resultadoEsperado, resultadoObtido);
+        assertEquals(resultadoEsperado, resultadoObtido, DELTA);
     }
 
     @Test
@@ -52,7 +55,7 @@ public class ControladorSistemaTest {
         Vetor3D vetorB = new Vetor3D(0, 1, 0);
         double resultadoEsperado = Math.PI / 2; 
         double resultadoObtido = controlador.anguloEntreVetores(vetorA, vetorB);
-        assertEquals(resultadoEsperado, resultadoObtido);
+        assertEquals(resultadoEsperado, resultadoObtido, DELTA);
     }
 
     @Test
