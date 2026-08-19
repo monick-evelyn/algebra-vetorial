@@ -1,9 +1,6 @@
 package sistema;
 import model.*;
 
-import model.Vetor2D;
-import model.Vetor3D;
-
 public class SistemaCalculadora {
 	
 	public Vetor3D calcularProdutoVetorial(Vetor3D vetorA, Vetor3D vetorB) {
