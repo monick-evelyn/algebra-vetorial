@@ -1,2 +1,2 @@
 # algebra-vetorial
-Projeto criado para a matéria de Álgebra Linear
+Projeto criado para a matéria de Álgebra Vetorial
