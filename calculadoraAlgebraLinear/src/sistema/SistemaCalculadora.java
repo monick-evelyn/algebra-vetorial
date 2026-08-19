@@ -29,4 +29,12 @@ public class SistemaCalculadora {
 		
 	}
 	
+	public double calcularAreaTriangulo(Vetor3D vetorA,Vetor3D vetorB) throws IllegalArgumentException{
+		
+		Vetor3D novoVetor = calcularProdutoVetorial(vetorA, vetorB);
+		
+		return novoVetor.modulo()/2;
+		
+	}
+
 }
