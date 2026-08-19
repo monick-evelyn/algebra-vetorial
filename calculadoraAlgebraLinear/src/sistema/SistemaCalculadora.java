@@ -21,4 +21,12 @@ public class SistemaCalculadora {
 		return novoVetor;
 		
 	}
+	public double calcularAreaParalelograma(Vetor3D vetorA,Vetor3D vetorB) throws IllegalArgumentException{
+		
+		Vetor3D novoVetor = calcularProdutoVetorial(vetorA, vetorB);
+		
+		return novoVetor.modulo();
+		
+	}
+	
 }
