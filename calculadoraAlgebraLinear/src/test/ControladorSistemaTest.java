@@ -72,7 +72,7 @@ public class ControladorSistemaTest {
     }
   
     @Test
-    public void testCalcularProdutoEscalar() {
+    public void testCalcularProdutoVetorial() {
         Vetor3D vetorA = new Vetor3D(1, 2, 3);
         Vetor3D vetorB = new Vetor3D(4, 5, 6);
         
@@ -84,15 +84,40 @@ public class ControladorSistemaTest {
         assertEquals(esperado,resultado);
     }
     
+    
+    @Test
+    public void testCalularProdutoVetorialVetoresPerpendiculares() {
+        Vetor3D vetorA = new Vetor3D(1, 2, 3);
+        Vetor3D vetorB = new Vetor3D(2, 4, 6);
+        
+        Vetor3D vetorResultante = controlador.calcularProdutoVetorial(vetorA, vetorB);
+        
+        String resultado = vetorResultante.toString();
+        String esperado = "Vetor3D [0.0, 0.0, 0.0]";
+        
+        assertEquals(esperado,resultado);
+    }
+    
+    
     @Test
     public void testCalcularAreaParalelograma() {
         Vetor3D vetorA = new Vetor3D(1, 2, 3);
         Vetor3D vetorB = new Vetor3D(4, 5, 6);
         
-        double resultado = controlador.calcularAreaParalelograma(vetorA, vetorB);
+        double resultado = controlador.calcularAreaParalelogramo(vetorA, vetorB);
         resultado = Math.round(resultado);
         
         assertEquals(7,resultado,0.0001);
+    }
+    
+    @Test
+    public void testCalcularAreaParalelogramaVetoresPerpendiculares() {
+        Vetor3D vetorA = new Vetor3D(1, 2, 3);
+        Vetor3D vetorB = new Vetor3D(2, 4, 6);
+        
+        double resultado = controlador.calcularAreaParalelogramo(vetorA, vetorB);
+        
+        assertEquals(0.0,resultado,0.0001);
     }
     
     @Test
@@ -104,6 +129,16 @@ public class ControladorSistemaTest {
         resultado = Math.round(resultado);
         
         assertEquals(4,resultado,0.0001);
+    }
+    
+    @Test
+    public void testCalcularAreaTrianguloVetoresPerpendiculares() {
+        Vetor3D vetorA = new Vetor3D(1, 2, 3);
+        Vetor3D vetorB = new Vetor3D(2, 4, 6);
+        
+        double resultado = controlador.calcularAreaTriangulo(vetorA, vetorB);
+        
+        assertEquals(0.0,resultado,0.0001);
     }
 
     @Test
@@ -158,4 +193,4 @@ public class ControladorSistemaTest {
     }
 }
    
-}
+
