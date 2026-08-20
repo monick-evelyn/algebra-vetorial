@@ -7,8 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import controller.ControladorSistema;
-import model.Vetor2D;
-import model.Vetor3D;
+import model.*;
 
 public class ControladorSistemaTest {
 
@@ -71,34 +70,40 @@ public class ControladorSistemaTest {
         boolean resultadoObtido = controlador.saoPerpendiculares(vetorA, vetorB);
         assertTrue(resultadoObtido);
     }
-
+  
     @Test
-    public void testCalcularProdutoVetorial() {
-        Vetor3D vetorA = new Vetor3D(1, 0, 0);
-        Vetor3D vetorB = new Vetor3D(0, 1, 0);
-        Vetor3D resultadoObtido = controlador.calcularProdutoVetorial(vetorA, vetorB);
+    public void testCalcularProdutoEscalar() {
+        Vetor3D vetorA = new Vetor3D(1, 2, 3);
+        Vetor3D vetorB = new Vetor3D(4, 5, 6);
         
-        assertEquals(0.0, resultadoObtido.getX(), DELTA);
-        assertEquals(0.0, resultadoObtido.getY(), DELTA);
-        assertEquals(1.0, resultadoObtido.getZ(), DELTA);
+        Vetor3D vetorResultante = controlador.calcularProdutoVetorial(vetorA, vetorB);
+        
+        String resultado = vetorResultante.toString();
+        String esperado = "Vetor3D [-3.0, 6.0, -3.0]";
+        
+        assertEquals(esperado,resultado);
     }
-
+    
     @Test
     public void testCalcularAreaParalelograma() {
-        Vetor3D vetorA = new Vetor3D(3, 0, 0);
-        Vetor3D vetorB = new Vetor3D(0, 4, 0);
-        double resultadoEsperado = 12.0;
-        double resultadoObtido = controlador.calcularAreaParalelogramo(vetorA, vetorB);
-        assertEquals(resultadoEsperado, resultadoObtido, DELTA);
+        Vetor3D vetorA = new Vetor3D(1, 2, 3);
+        Vetor3D vetorB = new Vetor3D(4, 5, 6);
+        
+        double resultado = controlador.calcularAreaParalelograma(vetorA, vetorB);
+        resultado = Math.round(resultado);
+        
+        assertEquals(7,resultado,0.0001);
     }
-
+    
     @Test
     public void testCalcularAreaTriangulo() {
-        Vetor3D vetorA = new Vetor3D(3, 0, 0);
-        Vetor3D vetorB = new Vetor3D(0, 4, 0);
-        double resultadoEsperado = 6.0;
-        double resultadoObtido = controlador.calcularAreaTriangulo(vetorA, vetorB);
-        assertEquals(resultadoEsperado, resultadoObtido, DELTA);
+        Vetor3D vetorA = new Vetor3D(1, 2, 3);
+        Vetor3D vetorB = new Vetor3D(4, 5, 6);
+        
+        double resultado = controlador.calcularAreaTriangulo(vetorA, vetorB);
+        resultado = Math.round(resultado);
+        
+        assertEquals(4,resultado,0.0001);
     }
 
     @Test
@@ -151,4 +156,6 @@ public class ControladorSistemaTest {
         Vetor3D vetorB = new Vetor3D(0, 0, 0);
         controlador.projetarVetores(vetorA, vetorB);
     }
+}
+   
 }

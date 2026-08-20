@@ -13,7 +13,7 @@ public class SistemaCalculadora {
 		double z = vetorA.getX() * vetorB.getY() - vetorA.getY() * vetorB.getX();
 		
 		Vetor3D novoVetor = new Vetor3D(x, y, z);
-		
+
 		return novoVetor;
 		
 	}
@@ -21,15 +21,12 @@ public class SistemaCalculadora {
 	public double calcularAreaParalelogramo(Vetor3D vetorA, Vetor3D vetorB) throws IllegalArgumentException {
 		
 		Vetor3D novoVetor = calcularProdutoVetorial(vetorA, vetorB);
-		
 		return novoVetor.modulo();
 		
 	}
 	
-	public double calcularAreaTriangulo(Vetor3D vetorA, Vetor3D vetorB) throws IllegalArgumentException {
-		
+	public double calcularAreaTriangulo(Vetor3D vetorA, Vetor3D vetorB) {
 		Vetor3D novoVetor = calcularProdutoVetorial(vetorA, vetorB);
-		
 		return novoVetor.modulo()/2;
 		
 	}
