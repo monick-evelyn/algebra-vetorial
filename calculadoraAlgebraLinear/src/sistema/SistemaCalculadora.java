@@ -1,9 +1,13 @@
 package sistema;
-import model.*;
+
+import model.Vetor;
+import model.Vetor2D;
+import model.Vetor3D;
 
 public class SistemaCalculadora {
 	
-	public Vetor3D calcularProdutoVetorial(Vetor3D vetorA, Vetor3D vetorB) {
+	public Vetor3D calcularProdutoVetorial(Vetor3D vetorA, Vetor3D vetorB) throws IllegalArgumentException {
+		
 		double x = vetorA.getY() * vetorB.getZ() - vetorA.getZ() * vetorB.getY();
 		double y = vetorA.getZ() * vetorB.getX() - vetorA.getX() * vetorB.getZ();
 		double z = vetorA.getX() * vetorB.getY() - vetorA.getY() * vetorB.getX();
@@ -14,7 +18,8 @@ public class SistemaCalculadora {
 		
 	}
 	
-	public double calcularAreaParalelograma(Vetor3D vetorA, Vetor3D vetorB) {
+	public double calcularAreaParalelogramo(Vetor3D vetorA, Vetor3D vetorB) throws IllegalArgumentException {
+		
 		Vetor3D novoVetor = calcularProdutoVetorial(vetorA, vetorB);
 		return novoVetor.modulo();
 		
@@ -56,4 +61,46 @@ public class SistemaCalculadora {
 	public boolean saoPerpendiculares(Vetor3D vetorA, Vetor3D vetorB) {
 		return produtoEscalar(vetorA, vetorB) == 0;
 	}
+	
+	public double moduloDoVetor(Vetor2D vetor) {
+		return vetor.modulo();
+	}
+	
+	public double moduloDoVetor(Vetor3D vetor) {
+		return vetor.modulo();
+	}
+	
+	public Vetor projetarVetores(Vetor2D vetorA, Vetor2D vetorB) {
+		double produtoEscalar = produtoEscalar(vetorA, vetorB);
+		double norma = produtoEscalar(vetorB, vetorB);
+		
+		if (norma == 0) throw new IllegalArgumentException("O vetor base não pode ser nulo.");
+		double fator = produtoEscalar/norma;
+		
+		return multiplicarPeloFator(fator, vetorB);
+	}
+	
+	public Vetor projetarVetores(Vetor3D vetorA, Vetor3D vetorB) {
+		double produtoEscalar = produtoEscalar(vetorA, vetorB);
+		double norma = produtoEscalar(vetorB, vetorB);
+		
+		if (norma == 0) throw new IllegalArgumentException("O vetor base não pode ser nulo.");
+		double fator = produtoEscalar/norma;
+		
+		return multiplicarPeloFator(fator, vetorB);
+	}
+	
+	private Vetor2D multiplicarPeloFator(double fator, Vetor2D vetorB) {
+		double x = vetorB.getX() * fator;
+		double y = vetorB.getY() * fator;
+		return new Vetor2D(x, y);
+	}
+	
+	private Vetor3D multiplicarPeloFator(double fator, Vetor3D vetorB) {
+		double x = vetorB.getX() * fator;
+		double y = vetorB.getY() * fator;
+		double z = vetorB.getZ() * fator;
+		return new Vetor3D(x, y, z);
+	}
+	
 }
