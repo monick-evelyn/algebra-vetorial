@@ -7,8 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import controller.ControladorSistema;
-import model.Vetor2D;
-import model.Vetor3D;
+import model.*;
 
 public class ControladorSistemaTest {
 
@@ -25,7 +24,7 @@ public class ControladorSistemaTest {
         Vetor2D vetorB = new Vetor2D(4, 5);
         double resultadoEsperado = 23.0;
         double resultadoObtido = controlador.produtoEscalar(vetorA, vetorB);
-        assertEquals(resultadoEsperado, resultadoObtido);
+        assertEquals(resultadoEsperado, resultadoObtido,0.0001);
     }
 
     @Test
@@ -34,7 +33,7 @@ public class ControladorSistemaTest {
         Vetor3D vetorB = new Vetor3D(4, 5, 6);
         double resultadoEsperado = 32.0;
         double resultadoObtido = controlador.produtoEscalar(vetorA, vetorB);
-        assertEquals(resultadoEsperado, resultadoObtido);
+        assertEquals(resultadoEsperado, resultadoObtido,0.0001);
     }
 
     @Test
@@ -43,7 +42,7 @@ public class ControladorSistemaTest {
         Vetor2D vetorB = new Vetor2D(0, 1);
         double resultadoEsperado = Math.PI / 2; 
         double resultadoObtido = controlador.anguloEntreVetores(vetorA, vetorB);
-        assertEquals(resultadoEsperado, resultadoObtido);
+        assertEquals(resultadoEsperado, resultadoObtido,0.0001);
     }
 
     @Test
@@ -52,7 +51,7 @@ public class ControladorSistemaTest {
         Vetor3D vetorB = new Vetor3D(0, 1, 0);
         double resultadoEsperado = Math.PI / 2; 
         double resultadoObtido = controlador.anguloEntreVetores(vetorA, vetorB);
-        assertEquals(resultadoEsperado, resultadoObtido);
+        assertEquals(resultadoEsperado, resultadoObtido,0.0001);
     }
 
     @Test
@@ -69,5 +68,40 @@ public class ControladorSistemaTest {
         Vetor3D vetorB = new Vetor3D(0, 1, 0);
         boolean resultadoObtido = controlador.saoPerpendiculares(vetorA, vetorB);
         assertTrue(resultadoObtido);
+    }
+    
+    @Test
+    public void testCalcularProdutoEscalar() {
+        Vetor3D vetorA = new Vetor3D(1, 2, 3);
+        Vetor3D vetorB = new Vetor3D(4, 5, 6);
+        
+        Vetor3D vetorResultante = controlador.calcularProdutoVetorial(vetorA, vetorB);
+        
+        String resultado = vetorResultante.toString();
+        String esperado = "Vetor3D [-3.0, 6.0, -3.0]";
+        
+        assertEquals(esperado,resultado);
+    }
+    
+    @Test
+    public void testCalcularAreaParalelograma() {
+        Vetor3D vetorA = new Vetor3D(1, 2, 3);
+        Vetor3D vetorB = new Vetor3D(4, 5, 6);
+        
+        double resultado = controlador.calcularAreaParalelograma(vetorA, vetorB);
+        resultado = Math.round(resultado);
+        
+        assertEquals(7,resultado,0.0001);
+    }
+    
+    @Test
+    public void testCalcularAreaTriangulo() {
+        Vetor3D vetorA = new Vetor3D(1, 2, 3);
+        Vetor3D vetorB = new Vetor3D(4, 5, 6);
+        
+        double resultado = controlador.calcularAreaTriangulo(vetorA, vetorB);
+        resultado = Math.round(resultado);
+        
+        assertEquals(4,resultado,0.0001);
     }
 }
