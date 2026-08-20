@@ -122,7 +122,11 @@ public class ConsoleSistema {
         Vetor2D vA = lerVetor2D("A");
         Vetor2D vB = lerVetor2D("B");
         double angulo = controlador.anguloEntreVetores(vA, vB);
-        System.out.printf("Ângulo (em radianos): %.2f\n", angulo);
+        if (Double.isNaN(angulo)) {
+            System.out.println("Erro ao calcular o ângulo. Verifique os vetores informados.");
+        } else {
+            System.out.printf("Ângulo (em radianos): %.2f\n", angulo);
+        }
     }
 
     private void executarPerpendiculares2D() {
@@ -185,7 +189,11 @@ public class ConsoleSistema {
         Vetor3D vA = lerVetor3D("A");
         Vetor3D vB = lerVetor3D("B");
         double angulo = controlador.anguloEntreVetores(vA, vB);
-        System.out.printf("Ângulo (em radianos): %.2f\n", angulo);
+        if (Double.isNaN(angulo)) {
+            System.out.println("Erro ao calcular o ângulo. Verifique os vetores informados.");
+        } else {
+            System.out.printf("Ângulo (em radianos): %.2f\n", angulo);
+        }
     }
 
     private void executarPerpendiculares3D() {
