@@ -6,27 +6,39 @@ import model.Vetor3D;
 
 public class SistemaCalculadora {
 	
-	public Vetor3D calcularProdutoVetorial(Vetor3D vetorA, Vetor3D vetorB) throws IllegalArgumentException {
+	public Vetor3D calcularProdutoVetorial(Vetor3D vetorA, Vetor3D vetorB) {
 		
 		double x = vetorA.getY() * vetorB.getZ() - vetorA.getZ() * vetorB.getY();
 		double y = vetorA.getZ() * vetorB.getX() - vetorA.getX() * vetorB.getZ();
 		double z = vetorA.getX() * vetorB.getY() - vetorA.getY() * vetorB.getX();
 		
-		Vetor3D novoVetor = new Vetor3D(x, y, z);
-
-		return novoVetor;
+		Vetor3D novoVetor = null;
 		
+		try{
+			novoVetor = new Vetor3D(x, y, z);	
+		} catch (IllegalArgumentException e) {
+			System.out.println("Erro ao calcular o produto vetorial: " + e.getMessage());
+			return null;
+		}
+		
+		return novoVetor;
 	}
 	
 	public double calcularAreaParalelogramo(Vetor3D vetorA, Vetor3D vetorB) throws IllegalArgumentException {
 		
 		Vetor3D novoVetor = calcularProdutoVetorial(vetorA, vetorB);
+		if (novoVetor == null) {
+			return -1; // Retorna -1 para indicar que houve um erro no cálculo do produto vetorial
+		}
 		return novoVetor.modulo();
 		
 	}
 	
 	public double calcularAreaTriangulo(Vetor3D vetorA, Vetor3D vetorB) {
 		Vetor3D novoVetor = calcularProdutoVetorial(vetorA, vetorB);
+		if (novoVetor == null) {
+			return -1; // Retorna -1 para indicar que houve um erro no cálculo do produto vetorial
+		}
 		return novoVetor.modulo()/2;
 		
 	}

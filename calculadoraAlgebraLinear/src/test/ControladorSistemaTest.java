@@ -89,7 +89,7 @@ public class ControladorSistemaTest {
         Vetor3D vetorA = new Vetor3D(1, 2, 3);
         Vetor3D vetorB = new Vetor3D(4, 5, 6);
         
-        double resultado = controlador.calcularAreaParalelograma(vetorA, vetorB);
+        double resultado = controlador.calcularAreaParalelogramo(vetorA, vetorB);
         resultado = Math.round(resultado);
         
         assertEquals(7,resultado,0.0001);
@@ -156,6 +156,4 @@ public class ControladorSistemaTest {
         Vetor3D vetorB = new Vetor3D(0, 0, 0);
         controlador.projetarVetores(vetorA, vetorB);
     }
-}
-   
 }

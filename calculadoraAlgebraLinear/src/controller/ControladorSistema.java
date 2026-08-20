@@ -15,18 +15,6 @@ public class ControladorSistema {
     
 // 2D
 
-    public Vetor3D calcularProdutoVetorial(Vetor3D vetorA, Vetor3D vetorB) {
-    	return sistema.calcularProdutoVetorial(vetorA, vetorB);
-    }
-    
-    public  double calcularAreaParalelograma(Vetor3D vetorA, Vetor3D vetorB) {
-    	return sistema.calcularAreaParalelograma(vetorA, vetorB);
-    }
-    
-    public double  calcularAreaTriangulo(Vetor3D vetorA, Vetor3D vetorB) {
-    	return sistema.calcularAreaTriangulo(vetorA, vetorB);
-    }
-
     public double produtoEscalar(Vetor2D vetorA, Vetor2D vetorB) {
         return sistema.produtoEscalar(vetorA, vetorB);
     }
