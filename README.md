@@ -75,11 +75,11 @@ O projeto conta com testes unitários (JUnit 4) para a camada de controle, local
 
 ## 👥 Contribuidores
 
-- Monick Évelyn
-- Carlos Henrique
-- Marcos Ruan
-- Miguel Luan
-- Richarlyson
+- Monick Évelyn -> [https://github.com/monick-evelyn]
+- Carlos Henrique -> [https://github.com/Kafkarlos]
+- Marcos Ruan -> [https://github.com/Marcosruan]
+- Miguel Luan -> [https://github.com/MiguelLuan]
+- Richarlyson -> [https://github.com/Richarlysonfrs]
 
 ## 📄 Licença
 
